@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
   content: [
     './pages/**/*.{ts,tsx}',
@@ -21,9 +23,7 @@ module.exports = {
         },
       },
     },
-    fontFamily: {
-      'roboto-flex': ['Roboto Flex', 'sans'],
-    },
+
   },
   plugins: [require("tailwindcss-animate")],
 }

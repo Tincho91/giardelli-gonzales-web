@@ -15,14 +15,14 @@ export function MainNav({
 
   const routes = [
     {
-      href: `/#metodologia`,
-      label: 'METODOLOGÍA',
-      active: pathname === `/` && (typeof window !== 'undefined' && window.location.hash === '#metodologia'),
+      href: `/#servicios`,
+      label: '¿QUÉ HACEMOS?',
+      active: pathname === `/` && (typeof window !== 'undefined' && window.location.hash === '#servicios'),
     },
     {
-      href: `/#servicios`,
-      label: 'SERVICIOS',
-      active: pathname === `/` && (typeof window !== 'undefined' && window.location.hash === '#servicios'),
+      href: `/#metodologia`,
+      label: '¿CÓMO LO HACEMOS?',
+      active: pathname === `/` && (typeof window !== 'undefined' && window.location.hash === '#metodologia'),
     },
     {
       href: `/#clientes`,

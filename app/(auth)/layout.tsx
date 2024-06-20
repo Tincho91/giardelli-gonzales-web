@@ -17,11 +17,11 @@ export default function AuthLayout({
       <Container>
         <div className="relative flex flex-col justify-center py-10">
           <FadeInFromTop>
-            <p className="text-center text-customBlue mb-4 text-sm md:text-lg lg:text-xl pb-10">
-              Nuestra consultora se ocupa de realizar <span className='font-bold'> procesos de selección de personas </span> para ocupar mandos medios y gerenciales dentro de la jerarquía de distintas entidades tales como, gestor organizacional, profesional en gestión, CEO, gerente, director y project manager, entre otros.
+            <p className="text-center text-customBlue mb-4 text-md md:text-xl pb-10">
+              Realizamos la inclusión de nuevos talentos para ocupar mandos medios y gerenciales en diferentes organizaciones. 
               <br />
               <br />
-              <span className='font-bold'> Si tu trayectoria es acorde a dichos puestos, te invitamos a cargar tu CV. </span>
+              <span className='font-bold'> Te invitamos a cargar tu CV y sumarte a nuestra base de datos. </span>
             </p>
           </FadeInFromTop>
           <FadeIn>

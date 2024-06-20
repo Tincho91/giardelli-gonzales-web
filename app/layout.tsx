@@ -8,7 +8,14 @@ import Footer from '@/components/footer'
 import SocialMediaButtons from '@/components/socialMediaButtons'
 import './globals.css'
 
-const font = Urbanist({ subsets: ['latin'] })
+import { Roboto_Condensed } from 'next/font/google'
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  style: ["normal", "italic"],
+  display: 'swap',
+  weight: ['400', '700'],
+});
 
 export const metadata = {
   title: 'Giardelli-Gonzalez',
@@ -22,8 +29,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-        <html lang="en">
-          <body className={font.className}>
+        <html lang="es">
+          <body className={`${robotoCondensed.className}`}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <ToastProvider />
               <ModalProvider />

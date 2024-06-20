@@ -5,27 +5,29 @@ import Marquee from 'react-fast-marquee';
 const Clients = () => {
 
   const clientImages = [
-    "/images/clients/aguero.png",
-    "/images/clients/aire.png",
-    "/images/clients/antares.png",
-    "/images/clients/cabrales.png",
-    "/images/clients/consca.png",
-    "/images/clients/constructora.png",
-    "/images/clients/cutaneo.png",
-    "/images/clients/delcerro.png",
-    "/images/clients/electroterma.png",
-    "/images/clients/hanna.png",
-    "/images/clients/mccain.png",
-    "/images/clients/nino.png",
-    "/images/clients/optica.png",
     "/images/clients/pepsico.png",
     "/images/clients/pizzolo.png",
+    "/images/clients/optica.png",
+    "/images/clients/antares.png",
+    "/images/clients/cabrales.png",
+    "/images/clients/constructora.png",
+    "/images/clients/electroterma.png",
+    "/images/clients/distribuidora.png",
+    "/images/clients/mccain.png",
+    "/images/clients/aire.png",
     "/images/clients/serymat.png",
-    "/images/clients/tandil.png",
+    "/images/clients/aguero.png",
+    "/images/clients/cutaneo.png",
+    "/images/clients/delcerro.png",
+    "/images/clients/napolitano.png",
+    "/images/clients/elmercedino.png",
+    "/images/clients/naturalsur.png",
+    "/images/clients/consca.png",
+    "/images/clients/pampaynovillo.png",
   ];
 
   return (
-    <div id='clientes' className="client-carousel bg-customGrey py-10 z-50">
+    <div id='clientes' className="client-carousel bg-[#E8E8E8] py-10 z-50">
         <p className="text-[8vw] md:text-[4.4vw] xl:text-[60px] font-extrabold mt-10 pb-16 text-customBlue text-center">ALGUNOS DE NUESTROS CLIENTES</p>
         <Marquee
           direction="left"

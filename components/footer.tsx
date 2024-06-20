@@ -11,18 +11,20 @@ const Footer = () => {
           Mar del Plata | 2235474466 | info@giardelli-gonzalez.com
         </p>
 
-        {/* Social Media Icons */}
+        {/*
+         Social Media Icons 
         <div className="flex gap-10 pt-5">
-          {/* LinkedIn Icon */}
+
           <a href="https://www.linkedin.com/company/giardelli-gonz%C3%A1lez-consultora/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={{ fontSize: '30px', color: '#DD6C49' }} />
           </a>
 
-          {/* Instagram Icon */}
+
           <a href="https://instagram.com/giardelligonzalez?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener noreferrer">
             <FaInstagram style={{ fontSize: '30px', color: '#DD6C49' }} />
           </a>
         </div>
+        */}
       </div>
     </footer>
   );

@@ -45,7 +45,7 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
 
     if (!isCVUploaded) {
       toast.error('Please upload your CV before submitting.', {
-        position: 'bottom-center', // Set the position to bottom-center
+        position: 'bottom-center',
       });
       setIsLoading(false);
       return;
@@ -77,14 +77,14 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
       await axios.post('/api/userRegisterNotification', emailData);
 
       toast.success('Usuario Creado!', {
-        position: 'bottom-center', //
+        position: 'bottom-center',
       });
 
       location.reload();
     } catch (error) {
 
       toast.error('Error creando el Usuario', {
-        position: 'bottom-center', //
+        position: 'bottom-center',
       });
 
     } finally {

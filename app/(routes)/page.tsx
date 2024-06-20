@@ -14,8 +14,8 @@ const HomePage = () => {
     <>
       <Hero />
       <HeroFooter />
-      <Methodology />
       <Services />
+      <Methodology />
       <Clients />
       <Contact />
     </>

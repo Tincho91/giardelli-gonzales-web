@@ -1,45 +1,36 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaInstagram, FaWhatsapp, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
+import React from 'react';
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 const commonIconStyle = {
-  fontSize: '30px',  // Adjust the size based on your design
+  fontSize: '30px',
 };
 
 const coloredIconStyle = {
   ...commonIconStyle,
-  color: '#DD6C49',  // Color for the first three icons
+  color: 'white',
 };
 
 const whatsappIconStyle = {
   ...commonIconStyle,
-  fontSize: "50px",
+  fontSize: "35px",
   color: 'white',
-  padding: '6px',
+  padding: '3px',
 };
-
 
 // Define the social media buttons component
 const SocialMediaButtons: React.FC = () => {
-  const [isHidden, setIsHidden] = useState(false);
-
-  const toggleVisibility = () => {
-    setIsHidden(!isHidden);
-  };
-
   return (
     <>
       <div>
         {/* WhatsApp Button (Always visible) */}
-        <motion.div
+        <div
           className="whatsapp-button"
           style={{
             position: 'fixed',
-            bottom: 20,
-            right: 40,
+            bottom: 25,
+            right: 25,
             zIndex: 1000,
             borderRadius: '50%',
             backgroundColor: "#25d366",
@@ -48,20 +39,16 @@ const SocialMediaButtons: React.FC = () => {
           <a href="https://wa.me/2235474466" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp style={whatsappIconStyle} />
           </a>
-        </motion.div>
+        </div>
       </div>
-
 
       <div className='hidden sm:block'>
         {/* Social Media Buttons (Visible on devices sm and above) */}
-        <motion.div
-          initial={{ opacity: 1, x: 0 }}
-          animate={{ opacity: isHidden ? 0 : 1, x: isHidden ? 200 : 0 }}
-          transition={{ duration: 0.5 }}
+        <div
           style={{
             position: 'fixed',
             top: '30%',
-            right: isHidden ? -200 : 45,
+            right: 25,
             transform: 'translateY(-50%)',
             display: 'flex',
             flexDirection: 'column',
@@ -70,7 +57,7 @@ const SocialMediaButtons: React.FC = () => {
           }}
         >
           {/* LinkedIn Button */}
-          <a href="https://www.linkedin.com/company/giardelli-gonz%C3%A1lez-consultora/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className=''>
+          <a href="https://www.linkedin.com/company/giardelli-gonz%C3%A1lez-consultora/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
             <FaLinkedin style={coloredIconStyle} />
           </a>
 
@@ -78,30 +65,11 @@ const SocialMediaButtons: React.FC = () => {
           <a href="https://instagram.com/giardelligonzalez?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener noreferrer">
             <FaInstagram style={coloredIconStyle} />
           </a>
-        </motion.div>
 
-        {/* Arrow Button to Toggle Visibility (Visible on devices sm and above) */}
-        <motion.button
-          onClick={toggleVisibility}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHidden ? 1 : 0.5 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            color: '#DD6C49',
-            position: 'fixed',
-            top: '36%',
-            right: 25,
-            transform: 'translateY(-50%)',
-            backgroundColor: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            zIndex: 1001,
-            display: 'block',
-          }}
-        >
-          {isHidden ? <FaArrowLeft /> : <FaArrowRight />}
-        </motion.button>
+          <a href="https://www.youtube.com/@GiardelliGonzalez" target="_blank" rel="noopener noreferrer">
+            <FaYoutube style={coloredIconStyle} />
+          </a>
+        </div>
       </div>
     </>
   );
