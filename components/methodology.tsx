@@ -24,7 +24,7 @@ const Methodology = () => {
               A partir de esa definición inicial, profundizamos el conocimiento de la organización llevando a cabo un 
               <span className="text-white font-bold text-xl lg:text-2xl"> proceso diagnóstico. </span><br />
               Posteriormente, presentamos el relevamiento realizado y proponemos un 
-              <span className="text-white font-bold text-xl lg:text-2xl"> plan de trabajo conjunto </span>
+              <span className="text-white font-bold text-xl lg:text-2xl"> plan de trabajo conjunto</span>
               , estableciendo objetivos, tiempos y sus correspondientes indicadores de medición.
             </p>
           </div>

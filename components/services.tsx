@@ -14,9 +14,9 @@ const Services: React.FC = () => {
           Existen distintas problemáticas que afectan a algunas empresas u organizaciones y que las impulsan a requerir procesos de cambio para poder revertirlas. Es común observar serias dificultades a la hora de gestionar las diversas instancias de la empresa. Solo  a modo de ejemplo:  alto nivel de conflictividad entre los colaboradores, imposibilidad de delegar, bajos rindes globales, lentitud de respuestas al entorno, pérdida de claridad de los objetivos.
           <br /><br />
           Lideramos los cambios necesarios en los sistemas organizacionales por medio de modificaciones en la 
-          <span className="text-white font-bold text-xl lg:text-2xl"> estructura </span>
-          ,en los
-          <span className="text-white font-black text-xl lg:text-2xl"> procesos </span>.
+          <span className="text-white font-bold text-xl lg:text-2xl"> estructura</span>
+          , en los
+          <span className="text-white font-black text-xl lg:text-2xl"> procesos </span>
           y especialmente, en los 
           <span className="text-white font-black text-xl lg:text-2xl"> sistemas de gestión </span>
           vigentes. Estos cambios favorecen el 
