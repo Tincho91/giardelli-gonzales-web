@@ -3,6 +3,7 @@ export interface Position {
   areaOfInterest: AreaOfInterest;
   name: string;
   isFeatured: boolean;
+  isArchived: boolean;
   shortDescription: string;
   longDescription: string;
   company: Company;

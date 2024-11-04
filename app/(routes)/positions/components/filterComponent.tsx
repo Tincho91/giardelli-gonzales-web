@@ -32,8 +32,6 @@ const FilterComponent: React.FC<FilterComponentProps> = ({ initialPositions, are
         (!positionName || position.name.toLowerCase().includes(positionName.toLowerCase())) &&
         (!areaOfInterest || position.areaOfInterest.id === areaOfInterest) &&
         (!modality || position.modality.id === modality)
-        &&
-        !position.isArchived
       );
     });
     setFilteredPositions(newFilteredPositions);

@@ -25,7 +25,7 @@ const getPositions = async ( query: Query ): Promise<Position[]> => {
       availabilityId: query.availabilityId,
       companyId: query.companyId,
       isFeatured: query.isFeatured,
-      isArchived: false,
+      isArchived: query.isArchived,
     },
   });
 
@@ -33,7 +33,6 @@ const getPositions = async ( query: Query ): Promise<Position[]> => {
   if (!res.ok) {
     throw new Error('NetPosition response was not ok');
   }
-
   return res.json();
 };
 

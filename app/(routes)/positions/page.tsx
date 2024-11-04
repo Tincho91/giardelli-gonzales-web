@@ -33,6 +33,7 @@ const PositionsPage: React.FC<PositionsPageProps> = async ({
       getAreasOfInterest(),
       getModalities(),
     ]);
+    Positions = Positions.filter(position => !position.isArchived);
   } catch (error) {
     // Handle error here (e.g., log, show an error message)
     console.error('Error fetching data:', error);
@@ -42,6 +43,8 @@ const PositionsPage: React.FC<PositionsPageProps> = async ({
   if (!Positions || !areasOfInterest || !modalities) {
     return <Spinner />;
   }
+
+
 
   return (
     <div className="bg-white relative min-h-full">
