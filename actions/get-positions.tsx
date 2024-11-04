@@ -11,6 +11,7 @@ interface Query {
   availabilityId?: string;
   companyId?: string;
   isFeatured?: boolean;
+  isArchived?: boolean;
 }
 
 const getPositions = async ( query: Query ): Promise<Position[]> => {
@@ -18,12 +19,13 @@ const getPositions = async ( query: Query ): Promise<Position[]> => {
     url: URL,
     query: { 
       modalityId: query.modalityId,
-      technologyId: query.technologyId,
+      technologyId: query.technologyId, 
       areaOfInterestId: query.areaOfInterestId,
       locationId: query.locationId,
       availabilityId: query.availabilityId,
       companyId: query.companyId,
       isFeatured: query.isFeatured,
+      isArchived: false,
     },
   });
 
