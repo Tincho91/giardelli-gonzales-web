@@ -44,7 +44,9 @@ const CVPage: React.FC = () => {
           setAreasOfInterest(fetchedAreasOfInterest);
         } catch (fetchError) {
           console.error('Error loading CV page data:', fetchError);
-          setError('No se pudo cargar tu perfil en este momento. Intenta nuevamente.');
+          const errorMessage =
+            fetchError instanceof Error ? fetchError.message : 'Unknown error';
+          setError(`No se pudo cargar tu perfil en este momento. ${errorMessage}`);
         } finally {
           setLoading(false);
         }
