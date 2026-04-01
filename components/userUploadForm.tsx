@@ -30,7 +30,7 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
   const [cvUrl, setCvUrl] = useState('');
   const [isCVUploaded, setIsCVUploaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedArea, setSelectedArea] = useState<string | null>(null);
+  const [selectedArea, setSelectedArea] = useState('');
 
   const onUpload = (result: UploadResult) => {
     if (result.info && result.info.url) {
@@ -41,6 +41,11 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (isLoading) {
+      return;
+    }
+
     setIsLoading(true);
 
     if (!isCVUploaded) {
@@ -51,10 +56,18 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
       return;
     }
 
+    if (!selectedArea) {
+      toast.error('Selecciona un area de interes.', {
+        position: 'bottom-center',
+      });
+      setIsLoading(false);
+      return;
+    }
+
     const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`;
 
     try {
-      const response = await axios.post(apiUrl, {
+      await axios.post(apiUrl, {
         name,
         email,
         phoneNumber,
@@ -72,18 +85,32 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
         },
       };
 
-      await axios.post('/api/userRegisterEmail', emailData);
-
-      await axios.post('/api/userRegisterNotification', emailData);
-
       toast.success('Usuario Creado!', {
         position: 'bottom-center',
       });
 
+      const emailResults = await Promise.allSettled([
+        axios.post('/api/userRegisterEmail', emailData),
+        axios.post('/api/userRegisterNotification', emailData),
+      ]);
+
+      const someEmailFailed = emailResults.some(
+        (result) => result.status === 'rejected'
+      );
+
+      if (someEmailFailed) {
+        toast('Perfil creado, pero fallo el envio de algunos correos.', {
+          position: 'bottom-center',
+        });
+      }
+
       location.reload();
     } catch (error) {
+      const errorMessage = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.response?.data?.message
+        : null;
 
-      toast.error('Error creando el Usuario', {
+      toast.error(errorMessage || 'Error creando el Usuario', {
         position: 'bottom-center',
       });
 
@@ -155,10 +182,11 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
                   <label htmlFor="areaOfInterest" className="text-left w-full text-customBlue">Área de Interés</label>
                   <select
                     id="areaOfInterest"
+                    value={selectedArea}
                     onChange={(e) => setSelectedArea(e.target.value)}
                     className="w-full border border-customBlue rounded-3xl px-4 py-2 bg-transparent text-customBlue focus:outline-none focus:border-customFocusColor z-10"
                   >
-                    <option value="" disabled selected>Selecciona el área de tu interés</option>
+                    <option value="" disabled>Selecciona el área de tu interés</option>
                     {areasOfInterest.map((area: any) => (
                       <option key={area.id} value={area.id}>
                         {area.name}
@@ -182,6 +210,7 @@ const UserUploadForm: React.FC<UserUploadFormProps> = ({ initialUserData, areasO
 
                   <Button
                     type="submit"
+                    disabled={isLoading}
                     className="text-md px-4 py-2 text-white bg-customOrange rounded-3xl hover:bg-customBlue focus:outline-none focus:bg-customBlue-dark border-none w-full md:w-auto"
                   >
                     {isLoading ? <Spinner /> : 'CREAR PERFIL'}
